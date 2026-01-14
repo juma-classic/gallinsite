@@ -299,7 +299,7 @@ function connectToDeriv() {
     status.textContent = 'Connecting...';
     status.className = 'status-connecting';
 
-    state.websocket = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=82255');
+    state.websocket = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=120557');
 
     state.websocket.onopen = () => {
         state.connectionRetries = 0;

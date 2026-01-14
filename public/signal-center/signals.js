@@ -11,7 +11,7 @@ let isTrading = false;
 let oauthToken = null;
 let tradeHistory = [];
 
-const ws = new WebSocket('wss://ws.derivws.com/websockets/v3?app_id=82255');
+const ws = new WebSocket('wss://ws.derivws.com/websockets/v3?app_id=120557');
 
 ws.onopen = () => {
     Object.keys(ticksStorage).forEach(subscribeTicks);

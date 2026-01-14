@@ -1,5 +1,5 @@
 // SpeedBot API for live trading
-const ws = new WebSocket('wss://ws.derivws.com/websockets/v3?app_id=82255');
+const ws = new WebSocket('wss://ws.derivws.com/websockets/v3?app_id=120557');
 
 // Store ticks for different symbols
 const ticksStorage = {
