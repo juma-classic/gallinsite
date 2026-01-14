@@ -221,7 +221,7 @@ const AppHeader = observer(() => {
                         tertiary
                         onClick={() => {
                             window.location.replace(
-                                'https://oauth.deriv.com/oauth2/authorize?app_id=117914&l=EN&brand=paulsite'
+                                'https://oauth.deriv.com/oauth2/authorize?app_id=121055&l=EN&brand=paulsite'
                             );
                         }}
                     >
