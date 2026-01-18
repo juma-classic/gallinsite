@@ -80,10 +80,10 @@
         height: 100% !important;
         border-start-end-radius: 0 !important;
         border-end-end-radius: 0 !important;
-        background-color: var(--purchase-main-1);
+        background-color: var(--teal-primary);
 
         &:hover {
-            background-color: var(--purchase-main-1) !important;
+            background-color: var(--teal-hover) !important;
         }
     }
 

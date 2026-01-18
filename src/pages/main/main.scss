@@ -8,6 +8,8 @@
     --card-bg: rgb(30 58 138 / 10%); // Navy with transparency
     --accent: #3b82f6; // Bright blue accent
     --accent2: #60a5fa; // Lighter blue accent
+    --teal-primary: #14b8a6; // Teal color for run button
+    --teal-hover: #0d9488; // Darker teal for hover state
     --text-primary: #fff; // Pure white for main text
     --text-secondary: #f1f5f9; // Very light grey-white
     --border-normal: rgb(59 130 246 / 20%); // Blue border with transparency
@@ -308,7 +310,11 @@
         .animation {
             &__button#db-animation {
                 &__run-button {
-                    background-color: var(--accent) !important;
+                    background-color: var(--teal-primary) !important;
+
+                    &:hover {
+                        background-color: var(--teal-hover) !important;
+                    }
                 }
 
                 &__stop-button {
@@ -341,7 +347,11 @@
     .animation {
         &__button#db-animation {
             &__run-button {
-                background-color: var(--accent) !important;
+                background-color: var(--teal-primary) !important;
+
+                &:hover {
+                    background-color: var(--teal-hover) !important;
+                }
             }
 
             &__stop-button {

@@ -12,6 +12,10 @@
     --zindex-draggable-modal: 7;
     --zindex-snackbar: 8;
 
+    // Teal colors for run button
+    --teal-primary: #14b8a6;
+    --teal-hover: #0d9488;
+
     &-dashboard {
         background: var(--general-section-1);
         width: 100%; // Ensure full width
