@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState, useCallback } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { observer } from 'mobx-react-lite';
 import ChunkLoader from '@/components/loader/chunk-loader';
@@ -6,6 +6,7 @@ import DesktopWrapper from '@/components/shared_ui/desktop-wrapper';
 import Dialog from '@/components/shared_ui/dialog';
 import MobileWrapper from '@/components/shared_ui/mobile-wrapper';
 import Tabs from '@/components/shared_ui/tabs/tabs';
+import SpeedBot from '@/components/speed-bot';
 import TradingViewModal from '@/components/trading-view-chart/trading-view-modal';
 import { DBOT_TABS } from '@/constants/bot-contents';
 import { api_base, updateWorkspaceName } from '@/external/bot-skeleton';
@@ -18,7 +19,6 @@ import RunPanel from '../../components/run-panel';
 import ChartModal from '../chart/chart-modal';
 import Dashboard from '../dashboard';
 import RunStrategy from '../dashboard/run-strategy';
-import SpeedBot from '@/components/speed-bot';
 
 const Chart = lazy(() => import('../chart'));
 const Tutorial = lazy(() => import('../tutorials'));
@@ -138,7 +138,6 @@ const AppWrapper = observer(() => {
     } = run_panel;
     const { cancel_button_text, ok_button_text, title, message } = dialog_options as { [key: string]: string };
     const { clear } = summary_card;
-    const { ANALYSIS_TOOL } = DBOT_TABS;
     const { isDesktop } = useDevice();
 
     type BotType = {
@@ -171,6 +170,20 @@ const AppWrapper = observer(() => {
                 'updated CFX Auto-Bot by Dexterator.xml',
                 'Over 3 Delirium by Elvis Trades.xml',
                 'Over_Under Ghost v2 - by Elvis Trades.xml',
+                'Alpha .xml',
+                'Digit hyper.xml',
+                'G.7over under pro.xml',
+                'G7.xml',
+                'Game Changer AI (1).xml',
+                'Random LDP Differ - Elvis Trades.xml',
+                '(eRe Test 1)Even Odd Ghost V1 by Dexter (1).xml',
+                'D6 Deriv by Duke.xml',
+                'Dexterator AI .xml',
+                'DIFF SMART BOT.xml',
+                'Digit Differ Split martingale Strategy[4nd July 2022].xml',
+                'King Auto Over 2 Under 7.xml',
+                'Over_Under Ghost - by ElvisTrades.xml',
+                'Over2_Under7_Armor Ai Bot.xml',
             ];
             const botPromises = botFiles.map(async file => {
                 try {
@@ -233,9 +246,11 @@ const AppWrapper = observer(() => {
 
     return (
         <>
-            <div className={classNames('main', {
-                'main--drawer-open': is_drawer_open && isDesktop && showRunPanel
-            })}>
+            <div
+                className={classNames('main', {
+                    'main--drawer-open': is_drawer_open && isDesktop && showRunPanel,
+                })}
+            >
                 <div className='main__container'>
                     <Tabs
                         active_index={active_tab}
@@ -359,8 +374,8 @@ const AppWrapper = observer(() => {
                                     src={analysisToolUrl}
                                     width='100%'
                                     height='100%'
-                                    style={{ 
-                                        border: 'none', 
+                                    style={{
+                                        border: 'none',
                                         display: 'block',
                                         flex: 1, // Take remaining space
                                     }}
@@ -407,11 +422,11 @@ const AppWrapper = observer(() => {
                                     'dashboard__chart-wrapper--modal': is_chart_modal_visible && isDesktop,
                                 })}
                             >
-                                <iframe 
-                                    src='https://mekop.netlify.app' 
+                                <iframe
+                                    src='https://mekop.netlify.app'
                                     width='100%'
-                                    height='100%' 
-                                    frameBorder='0' 
+                                    height='100%'
+                                    frameBorder='0'
                                     style={{ border: 'none', display: 'block' }}
                                 />
                             </div>
@@ -449,7 +464,7 @@ const AppWrapper = observer(() => {
                             <div
                                 className='free-bots'
                                 style={{
-                                    background: 'rgba(30, 41, 59, 0.35)',
+                                    background: '#ffffff', // White background
                                     color: '#151a23',
                                     padding: '2rem 1rem',
                                     borderRadius: '12px',
@@ -458,6 +473,7 @@ const AppWrapper = observer(() => {
                                     display: 'flex',
                                     flexDirection: 'column',
                                     overflow: 'hidden',
+                                    border: '1px solid #e0e0e0', // Light border for definition
                                 }}
                             >
                                 <h2

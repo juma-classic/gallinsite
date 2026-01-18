@@ -5,18 +5,18 @@
     // Navy Blue Gradient Theme
     --main-theme: #1e3a8a; // Deep navy blue
     --bg-gradient: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);
-    --card-bg: rgba(30, 58, 138, 0.1); // Navy with transparency
+    --card-bg: rgb(30 58 138 / 10%); // Navy with transparency
     --accent: #3b82f6; // Bright blue accent
     --accent2: #60a5fa; // Lighter blue accent
-    --text-primary: #ffffff; // Pure white for main text
+    --text-primary: #fff; // Pure white for main text
     --text-secondary: #f1f5f9; // Very light grey-white
-    --border-normal: rgba(59, 130, 246, 0.2); // Blue border with transparency
+    --border-normal: rgb(59 130 246 / 20%); // Blue border with transparency
     --general-main-1: #1e3a8a; // Navy blue background
     --general-section-1: #1e40af; // Medium navy for sections
     --purchase-main-1: #3b82f6; // Bright blue for purchase actions
     --button-primary-hover: #60a5fa; // Light blue for hover states
     --brand-red-coral: #ef4444; // Vibrant red for danger/alerts
-    --text-prominent: #ffffff; // White for prominent text
+    --text-prominent: #fff; // White for prominent text
     --text-accent: #fbbf24; // Vibrant amber for accents
 }
 
@@ -48,14 +48,10 @@
 
 .free-bots {
     padding: 20px;
-    background: rgba(30, 41, 59, 0.35); /* semi-transparent dark */
+    background: #fff !important; /* White background */
     border-radius: 18px;
-    border: 1.5px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
-    backdrop-filter: blur(12px) saturate(160%);
-    -webkit-backdrop-filter: blur(12px) saturate(160%);
-    /* Optional: subtle border gradient */
-    border-image: linear-gradient(135deg, rgba(0, 255, 255, 0.18), rgba(0, 255, 128, 0.12), rgba(255, 0, 255, 0.1)) 1;
+    border: 1px solid #e0e0e0; /* Light gray border */
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%); /* Subtle shadow */
     height: 100%; // Use full available height
     overflow-y: auto; // Allow scrolling if content overflows
     display: flex;
@@ -72,17 +68,17 @@
 }
 
 .free-bot {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1.5px solid rgba(255, 255, 255, 0.18);
+    background: rgb(255 255 255 / 10%);
+    border: 1.5px solid rgb(255 255 255 / 18%);
     border-radius: 16px;
-    padding: 18px 15px 15px 15px;
+    padding: 18px 15px 15px;
     width: 220px;
     text-align: center;
     box-shadow:
-        0 4px 24px 0 rgba(0, 255, 255, 0.1),
-        0 1.5px 8px 0 rgba(0, 0, 0, 0.1);
+        0 4px 24px 0 rgb(0 255 255 / 10%),
+        0 1.5px 8px 0 rgb(0 0 0 / 10%);
     backdrop-filter: blur(8px) saturate(140%);
-    -webkit-backdrop-filter: blur(8px) saturate(140%);
+    backdrop-filter: blur(8px) saturate(140%);
     transition:
         transform 0.3s cubic-bezier(0.4, 2, 0.6, 1),
         box-shadow 0.3s cubic-bezier(0.4, 2, 0.6, 1);
@@ -90,9 +86,9 @@
     &:hover {
         transform: translateY(-7px) scale(1.03);
         box-shadow:
-            0 8px 32px 0 rgba(0, 255, 255, 0.18),
-            0 2px 12px 0 rgba(0, 0, 0, 0.13);
-        border-color: rgba(0, 255, 255, 0.25);
+            0 8px 32px 0 rgb(0 255 255 / 18%),
+            0 2px 12px 0 rgb(0 0 0 / 13%);
+        border-color: rgb(0 255 255 / 25%);
     }
 }
 
@@ -135,7 +131,7 @@
     // When drawer is open, adjust width to fit alongside Run Panel
     &--drawer-open {
         width: calc(100% - 36.6rem); // Subtract Run Panel width
-        
+
         @include mobile-or-tablet-screen {
             width: 100%; // Full width on mobile (Run Panel overlays)
         }
@@ -278,7 +274,7 @@
                 @include flex-center;
 
                 &:hover {
-                    background: rgba(59, 130, 246, 0.15);
+                    background: rgb(59 130 246 / 15%);
                 }
 
                 svg {
@@ -855,7 +851,7 @@
             }
 
             &:hover {
-                background: rgba(59, 130, 246, 0.1);
+                background: rgb(59 130 246 / 10%);
             }
         }
     }
@@ -937,5 +933,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(251, 191, 36, 0.1);
+    background: rgb(251 191 36 / 10%);
 }
