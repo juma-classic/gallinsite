@@ -1,6 +1,6 @@
 .bot {
     --bot-content-height: calc(100vh - 140px);
-    --bot-content-width: calc(100vw - 366px);
+    --bot-content-width: 100vw; // Use full viewport width
     --drawer-content-height: calc(100vh - 394px);
     --drawer-content-height-no-stat: calc(100vh - 233px);
     --drawer-scroll-height: calc(100vh - 365px);
@@ -14,6 +14,7 @@
 
     &-dashboard {
         background: var(--general-section-1);
+        width: 100%; // Ensure full width
     }
 }
 

@@ -31,14 +31,19 @@
 }
 
 .free-bots__content-wrapper {
-    max-height: 400px;
-    overflow-y: auto;
+    flex: 1; // Take up remaining space
+    overflow-y: auto; // Allow scrolling if needed
+    display: flex;
+    flex-direction: column;
 }
 
 .free-bots__content {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    flex: 1; // Take up available space
+    align-content: flex-start; // Align items to top
 }
 
 .free-bots {
@@ -51,6 +56,10 @@
     -webkit-backdrop-filter: blur(12px) saturate(160%);
     /* Optional: subtle border gradient */
     border-image: linear-gradient(135deg, rgba(0, 255, 255, 0.18), rgba(0, 255, 128, 0.12), rgba(255, 0, 255, 0.1)) 1;
+    height: 100%; // Use full available height
+    overflow-y: auto; // Allow scrolling if content overflows
+    display: flex;
+    flex-direction: column;
 }
 
 .free-bots__heading {
@@ -59,13 +68,7 @@
     margin-bottom: 20px;
     text-align: center;
     color: var(--accent2);
-}
-
-.free-bots__content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    flex-shrink: 0; // Don't shrink the heading
 }
 
 .free-bot {
@@ -118,13 +121,13 @@
     display: flex;
     overflow: hidden;
     width: 100%;
-    height: calc(100vh - 9rem);
-    padding: 1.6rem;
+    height: calc(100vh - 4.9rem); // Full height minus header
+    padding: 0; // Remove padding to use full space
     background: var(--bg-gradient);
     color: var(--text-primary);
 
     @include mobile-or-tablet-screen {
-        height: calc(100vh - 6rem);
+        height: calc(100vh - 4rem);
         padding: 0;
     }
 
@@ -133,6 +136,7 @@
         border: none;
         max-width: 100%;
         width: 100%;
+        height: 100%; // Use full height
 
         &--active {
             &:before {
@@ -149,6 +153,8 @@
         }
 
         .dc-tabs {
+            height: 100%; // Make tabs container full height
+
             &__active-line {
                 background-color: var(--accent2) !important;
                 transition: none;
@@ -163,6 +169,7 @@
                 background: var(--general-section-1);
                 justify-content: start;
                 border-bottom: 1px solid var(--border-normal);
+                flex-shrink: 0; // Don't shrink the tab list
 
                 @include mobile-or-tablet-screen {
                     overflow-x: auto;
@@ -195,6 +202,10 @@
             }
 
             &__content {
+                height: calc(100% - 4.8rem); // Full height minus tab header
+                overflow: auto; // Allow scrolling if needed
+                position: relative; // For absolute positioned children
+
                 @include mobile-or-tablet-screen {
                     width: 100%;
                     overflow-x: auto;
@@ -229,12 +240,19 @@
                     &__tabs {
                         display: flex;
                         justify-content: space-between;
+                        height: 100%; // Use full available height
 
                         @include mobile-or-tablet-screen {
                             flex-direction: column;
                             background-color: var(--general-section-1);
                         }
                     }
+                }
+
+                // Ensure all tab content uses full space
+                > div {
+                    height: 100%;
+                    width: 100%;
                 }
             }
 
@@ -378,16 +396,16 @@
 .dashboard {
     &__chart-wrapper {
         position: relative;
-        height: var(--tab-content-height);
+        height: 100%; // Use full available height
         width: 100%;
         transition: all 0.4s;
         overflow: hidden;
         background: var(--card-bg);
-        border: 1px solid var(--border-normal);
-        border-radius: 16px;
+        border: none; // Remove border for full width
+        border-radius: 0; // Remove border radius for full width
 
         @include mobile-or-tablet-screen {
-            height: var(--tab-content-height-mobile);
+            height: 100%; // Use full height on mobile too
             background: var(--general-main-1);
 
             .smartcharts {
@@ -402,7 +420,7 @@
         }
 
         &--expanded {
-            width: calc(100vw - 39.8rem);
+            width: 100%; // Use full width instead of constrained calculation
         }
 
         &--modal {
@@ -412,6 +430,7 @@
         iframe {
             display: block;
             width: 100%;
+            height: 100%; // Use full height instead of fixed 600px
             border: none;
             background: var(--general-main-1);
             transition: width 0.4s ease;
@@ -421,7 +440,7 @@
 
             @include mobile-or-tablet-screen {
                 width: 100%;
-                height: calc(100vh - 10rem) !important;
+                height: 100% !important; // Use full height on mobile
             }
         }
     }
@@ -519,13 +538,14 @@
 
 .bot-builder {
     position: absolute;
-    top: 6.6rem;
-    inset-inline-start: 1.6rem;
+    top: 4.8rem; // Add space for the tab navigation (tab height is about 4.8rem)
+    left: 0; // Start from left edge
+    right: 0; // Extend to right edge
     z-index: -1;
     background: var(--general-section-1);
-    height: var(--tab-content-height);
-    border: 1px solid var(--border-normal);
-    border-radius: 8px;
+    height: calc(100% - 4.8rem); // Adjust height to account for top spacing
+    border: none; // Remove border for full width
+    border-radius: 0; // Remove border radius for full width
 
     .injectionDiv {
         .blocklyTrash {
@@ -552,10 +572,11 @@
     }
 
     @include mobile-or-tablet-screen {
-        top: 5.6rem;
-        inset-inline-start: 0;
+        top: 4.8rem; // Same spacing for mobile
+        left: 0;
+        right: 0;
         width: 100vw;
-        height: var(--tab-content-height-mobile);
+        height: calc(100% - 4.8rem);
     }
 }
 

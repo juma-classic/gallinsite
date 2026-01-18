@@ -317,6 +317,11 @@ const AppWrapper = observer(() => {
                                     'dashboard__chart-wrapper--expanded': is_drawer_open && isDesktop,
                                     'dashboard__chart-wrapper--modal': is_chart_modal_visible && isDesktop,
                                 })}
+                                style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    height: '100%',
+                                }}
                             >
                                 <div
                                     style={{
@@ -324,6 +329,7 @@ const AppWrapper = observer(() => {
                                         gap: '8px',
                                         padding: '8px',
                                         borderBottom: '1px solid var(--border-normal)',
+                                        margin: 0, // Remove any margin
                                     }}
                                 >
                                     <button
@@ -362,8 +368,12 @@ const AppWrapper = observer(() => {
                                 <iframe
                                     src={analysisToolUrl}
                                     width='100%'
-                                    height='600px'
-                                    style={{ border: 'none', display: 'block' }}
+                                    height='100%'
+                                    style={{ 
+                                        border: 'none', 
+                                        display: 'block',
+                                        flex: 1, // Take remaining space
+                                    }}
                                     scrolling='yes'
                                 />
                             </div>
@@ -386,7 +396,7 @@ const AppWrapper = observer(() => {
                                 <iframe
                                     src='signals'
                                     width='100%'
-                                    height='600px'
+                                    height='100%'
                                     style={{ border: 'none', display: 'block' }}
                                     scrolling='yes'
                                 />
@@ -407,7 +417,13 @@ const AppWrapper = observer(() => {
                                     'dashboard__chart-wrapper--modal': is_chart_modal_visible && isDesktop,
                                 })}
                             >
-                                <iframe src='https://mekop.netlify.app' height='600px' frameBorder='0' />
+                                <iframe 
+                                    src='https://mekop.netlify.app' 
+                                    width='100%'
+                                    height='100%' 
+                                    frameBorder='0' 
+                                    style={{ border: 'none', display: 'block' }}
+                                />
                             </div>
                         </div>
                         {/* SPEED BOT TAB */}
@@ -443,14 +459,15 @@ const AppWrapper = observer(() => {
                             <div
                                 className='free-bots'
                                 style={{
-                                    background: '#f3f6fa',
+                                    background: 'rgba(30, 41, 59, 0.35)',
                                     color: '#151a23',
                                     padding: '2rem 1rem',
                                     borderRadius: '12px',
-                                    margin: '1.5rem 0',
-                                    maxWidth: 900,
-                                    marginLeft: 'auto',
-                                    marginRight: 'auto',
+                                    margin: 0,
+                                    height: '100%',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    overflow: 'hidden',
                                 }}
                             >
                                 <h2
@@ -468,9 +485,9 @@ const AppWrapper = observer(() => {
                                     className='free-bots__content-wrapper'
                                     style={{
                                         display: 'flex',
-                                        flexWrap: 'wrap',
-                                        gap: '1.2rem',
-                                        justifyContent: 'center',
+                                        flexDirection: 'column',
+                                        flex: 1,
+                                        overflow: 'hidden',
                                     }}
                                 >
                                     <ul
@@ -484,6 +501,9 @@ const AppWrapper = observer(() => {
                                             listStyle: 'none',
                                             width: '100%',
                                             justifyContent: 'center',
+                                            flex: 1,
+                                            alignContent: 'flex-start',
+                                            overflow: 'auto',
                                         }}
                                     >
                                         {bots.length === 0 ? (
