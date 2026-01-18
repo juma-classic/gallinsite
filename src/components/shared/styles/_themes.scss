@@ -75,7 +75,7 @@
         --text-disabled: #{constants.$color-grey-1};
         --text-disabled-1: #{constants.$color-grey-6};
         --text-loss-danger: #{constants.$color-red-1};
-        --text-profit-success: #{constants.$color-green-1};
+        --text-profit-success: #14b8a6;
         --text-warning: #{constants.$color-yellow};
         --text-red: #{constants.$color-red};
         --text-green: #{constants.$color-green-6};
@@ -221,7 +221,7 @@
         --text-primary: #{constants.$color-grey-1};
         --text-disabled: #{constants.$color-black-6};
         --text-disabled-1: #{constants.$color-black-6};
-        --text-profit-success: #{constants.$color-green-3};
+        --text-profit-success: #14b8a6;
         --text-loss-danger: #{constants.$color-red-2};
         --text-red: #{constants.$color-red};
         --text-colored-background: #{constants.$color-white};
@@ -345,7 +345,7 @@
         --general-main-1: #0a1929;
         --general-main-2: #132f4c;
         --general-main-3: #173a5e;
-        --general-main-4: rgba(19, 47, 76, 0.8);
+        --general-main-4: rgb(19 47 76 / 80%);
         --general-section-1: #1e3a8a;
         --general-section-2: #1e40af;
         --general-section-3: #2563eb;
@@ -363,18 +363,18 @@
         --text-primary: #94a3b8;
         --text-disabled: #64748b;
         --text-disabled-1: #475569;
-        --text-profit-success: #10b981;
+        --text-profit-success: #14b8a6;
         --text-loss-danger: #ef4444;
         --text-red: #f87171;
-        --text-colored-background: #ffffff;
+        --text-colored-background: #fff;
         --text-info-blue: #60a5fa;
         --text-info-blue-background: #1e40af;
         --text-status-info-blue: #3b82f6;
         --text-hint: #94a3b8;
         --icon-light-background: #1e293b;
-        --icon-dark-background: #ffffff;
+        --icon-dark-background: #fff;
         --icon-grey-background: #334155;
-        --icon-black-plus: #ffffff;
+        --icon-black-plus: #fff;
 
         // Purchase
         --purchase-main-1: #10b981;
@@ -388,25 +388,25 @@
         --button-primary-default: #3b82f6;
         --button-secondary-default: #64748b;
         --button-tertiary-default: transparent;
-        --button-primary-light-default: rgba(59, 130, 246, 0.2);
+        --button-primary-light-default: rgb(59 130 246 / 20%);
         --button-primary-hover: #2563eb;
-        --button-secondary-hover: rgba(248, 250, 252, 0.1);
-        --button-tertiary-hover: rgba(59, 130, 246, 0.1);
-        --button-primary-light-hover: rgba(59, 130, 246, 0.3);
+        --button-secondary-hover: rgb(248 250 252 / 10%);
+        --button-tertiary-hover: rgb(59 130 246 / 10%);
+        --button-primary-light-hover: rgb(59 130 246 / 30%);
         --button-toggle-primary: #60a5fa;
         --button-toggle-secondary: #334155;
         --button-toggle-alternate: #1e293b;
-        --button-get-started-bg: #ffffff;
+        --button-get-started-bg: #fff;
 
         // Overlay
-        --overlay-outside-dialog: rgba(10, 25, 41, 0.8);
-        --overlay-inside-dialog: rgba(19, 47, 76, 0.9);
+        --overlay-outside-dialog: rgb(10 25 41 / 80%);
+        --overlay-inside-dialog: rgb(19 47 76 / 90%);
 
         // Shadow
-        --shadow-menu: rgba(10, 25, 41, 0.8);
-        --shadow-menu-2: rgba(10, 25, 41, 0.6);
-        --shadow-drop: rgba(10, 25, 41, 0.9);
-        --shadow-box: rgba(10, 25, 41, 0.7);
+        --shadow-menu: rgb(10 25 41 / 80%);
+        --shadow-menu-2: rgb(10 25 41 / 60%);
+        --shadow-drop: rgb(10 25 41 / 90%);
+        --shadow-box: rgb(10 25 41 / 70%);
 
         // States
         --state-normal: #0a1929;
@@ -439,18 +439,18 @@
         --status-adjustment: #94a3b8;
         --status-danger: #ef4444;
         --status-warning: #f59e0b;
-        --status-warning-transparent: rgba(245, 158, 11, 0.2);
+        --status-warning-transparent: rgb(245 158 11 / 20%);
         --status-success: #10b981;
         --status-transfer: #f97316;
         --status-info: #3b82f6;
-        --status-colored-background: #ffffff;
+        --status-colored-background: #fff;
         --status-alert-background: #fef3c7;
 
         // Transparentize
-        --transparent-success: rgba(16, 185, 129, 0.2);
-        --transparent-info: rgba(59, 130, 246, 0.2);
-        --transparent-hint: rgba(59, 130, 246, 0.1);
-        --transparent-danger: rgba(239, 68, 68, 0.2);
+        --transparent-success: rgb(16 185 129 / 20%);
+        --transparent-info: rgb(59 130 246 / 20%);
+        --transparent-hint: rgb(59 130 246 / 10%);
+        --transparent-danger: rgb(239 68 68 / 20%);
         --transparent-correct-message: #d1fae5;
         --transparent-fake-message: #fee2e2;
 
@@ -464,7 +464,7 @@
         --gradient-green: linear-gradient(135deg, #10b981, #047857);
 
         // Badge
-        --badge-white: #ffffff;
+        --badge-white: #fff;
         --badge-blue: #3b82f6;
         --badge-violet: #8b5cf6;
         --badge-green: #10b981;
@@ -487,7 +487,7 @@
         --general-main-1: #1a0f1f;
         --general-main-2: #2d1b3d;
         --general-main-3: #3d2352;
-        --general-main-4: rgba(45, 27, 61, 0.8);
+        --general-main-4: rgb(45 27 61 / 80%);
         --general-section-1: #581c87;
         --general-section-2: #7c3aed;
         --general-section-3: #a855f7;
@@ -505,18 +505,18 @@
         --text-primary: #c4b5fd;
         --text-disabled: #6b7280;
         --text-disabled-1: #4b5563;
-        --text-profit-success: #10b981;
+        --text-profit-success: #14b8a6;
         --text-loss-danger: #ef4444;
         --text-red: #f87171;
-        --text-colored-background: #ffffff;
+        --text-colored-background: #fff;
         --text-info-blue: #60a5fa;
         --text-info-blue-background: #1e40af;
         --text-status-info-blue: #3b82f6;
         --text-hint: #c4b5fd;
         --icon-light-background: #2d1b3d;
-        --icon-dark-background: #ffffff;
+        --icon-dark-background: #fff;
         --icon-grey-background: #3d2352;
-        --icon-black-plus: #ffffff;
+        --icon-black-plus: #fff;
 
         // Purchase
         --purchase-main-1: #10b981;
@@ -530,25 +530,25 @@
         --button-primary-default: #a855f7;
         --button-secondary-default: #6b7280;
         --button-tertiary-default: transparent;
-        --button-primary-light-default: rgba(168, 85, 247, 0.2);
+        --button-primary-light-default: rgb(168 85 247 / 20%);
         --button-primary-hover: #9333ea;
-        --button-secondary-hover: rgba(250, 245, 255, 0.1);
-        --button-tertiary-hover: rgba(168, 85, 247, 0.1);
-        --button-primary-light-hover: rgba(168, 85, 247, 0.3);
+        --button-secondary-hover: rgb(250 245 255 / 10%);
+        --button-tertiary-hover: rgb(168 85 247 / 10%);
+        --button-primary-light-hover: rgb(168 85 247 / 30%);
         --button-toggle-primary: #c084fc;
         --button-toggle-secondary: #374151;
         --button-toggle-alternate: #2d1b3d;
-        --button-get-started-bg: #ffffff;
+        --button-get-started-bg: #fff;
 
         // Overlay
-        --overlay-outside-dialog: rgba(26, 15, 31, 0.8);
-        --overlay-inside-dialog: rgba(45, 27, 61, 0.9);
+        --overlay-outside-dialog: rgb(26 15 31 / 80%);
+        --overlay-inside-dialog: rgb(45 27 61 / 90%);
 
         // Shadow
-        --shadow-menu: rgba(26, 15, 31, 0.8);
-        --shadow-menu-2: rgba(26, 15, 31, 0.6);
-        --shadow-drop: rgba(26, 15, 31, 0.9);
-        --shadow-box: rgba(26, 15, 31, 0.7);
+        --shadow-menu: rgb(26 15 31 / 80%);
+        --shadow-menu-2: rgb(26 15 31 / 60%);
+        --shadow-drop: rgb(26 15 31 / 90%);
+        --shadow-box: rgb(26 15 31 / 70%);
 
         // States
         --state-normal: #1a0f1f;
@@ -581,18 +581,18 @@
         --status-adjustment: #9ca3af;
         --status-danger: #ef4444;
         --status-warning: #f59e0b;
-        --status-warning-transparent: rgba(245, 158, 11, 0.2);
+        --status-warning-transparent: rgb(245 158 11 / 20%);
         --status-success: #10b981;
         --status-transfer: #f97316;
         --status-info: #3b82f6;
-        --status-colored-background: #ffffff;
+        --status-colored-background: #fff;
         --status-alert-background: #fef3c7;
 
         // Transparentize
-        --transparent-success: rgba(16, 185, 129, 0.2);
-        --transparent-info: rgba(59, 130, 246, 0.2);
-        --transparent-hint: rgba(59, 130, 246, 0.1);
-        --transparent-danger: rgba(239, 68, 68, 0.2);
+        --transparent-success: rgb(16 185 129 / 20%);
+        --transparent-info: rgb(59 130 246 / 20%);
+        --transparent-hint: rgb(59 130 246 / 10%);
+        --transparent-danger: rgb(239 68 68 / 20%);
         --transparent-correct-message: #d1fae5;
         --transparent-fake-message: #fee2e2;
 
@@ -606,7 +606,7 @@
         --gradient-green: linear-gradient(135deg, #10b981, #047857);
 
         // Badge
-        --badge-white: #ffffff;
+        --badge-white: #fff;
         --badge-blue: #3b82f6;
         --badge-violet: #8b5cf6;
         --badge-green: #10b981;
@@ -646,7 +646,7 @@
         --text-primary: #1abc9c;
         --text-disabled: #2d3a4a;
         --text-disabled-1: #2d3a4a;
-        --text-profit-success: #1abc9c;
+        --text-profit-success: #14b8a6;
         --text-loss-danger: #0a192f;
         --text-red: #0a192f;
         --text-colored-background: #0a192f;
@@ -682,14 +682,14 @@
         --button-get-started-bg: #0a192f;
 
         // Overlay
-        --overlay-outside-dialog: rgba(10, 25, 47, 0.8);
-        --overlay-inside-dialog: rgba(26, 188, 156, 0.2);
+        --overlay-outside-dialog: rgb(10 25 47 / 80%);
+        --overlay-inside-dialog: rgb(26 188 156 / 20%);
 
         // Shadow
-        --shadow-menu: rgba(10, 25, 47, 0.15);
-        --shadow-menu-2: rgba(26, 188, 156, 0.15);
-        --shadow-drop: rgba(14, 102, 85, 0.15);
-        --shadow-box: rgba(26, 188, 156, 0.2);
+        --shadow-menu: rgb(10 25 47 / 15%);
+        --shadow-menu-2: rgb(26 188 156 / 15%);
+        --shadow-drop: rgb(14 102 85 / 15%);
+        --shadow-box: rgb(26 188 156 / 20%);
 
         // States
         --state-normal: #0a192f;
@@ -722,7 +722,7 @@
         --status-adjustment: #1abc9c;
         --status-danger: #0a192f;
         --status-warning: #132f4c;
-        --status-warning-transparent: rgba(26, 188, 156, 0.2);
+        --status-warning-transparent: rgb(26 188 156 / 20%);
         --status-success: #1abc9c;
         --status-transfer: #132f4c;
         --status-info: #00bfff;
@@ -730,10 +730,10 @@
         --status-alert-background: #1e3a5c;
 
         // Transparentize
-        --transparent-success: rgba(26, 188, 156, 0.2);
-        --transparent-info: rgba(0, 191, 255, 0.2);
-        --transparent-hint: rgba(26, 188, 156, 0.1);
-        --transparent-danger: rgba(10, 25, 47, 0.2);
+        --transparent-success: rgb(26 188 156 / 20%);
+        --transparent-info: rgb(0 191 255 / 20%);
+        --transparent-hint: rgb(26 188 156 / 10%);
+        --transparent-danger: rgb(10 25 47 / 20%);
         --transparent-correct-message: #1e3a5c;
         --transparent-fake-message: #2d3a4a;
 
