@@ -165,7 +165,7 @@ const IntroLoader: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
                 </div>
             </div>
 
-            <style jsx>{`
+            <style>{`
                 @keyframes fadeInUp {
                     from {
                         opacity: 0;

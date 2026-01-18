@@ -1,7 +1,6 @@
-import React, { lazy, Suspense, useEffect, useState, useCallback } from 'react';
+import { lazy, Suspense, useEffect, useState, useCallback } from 'react';
 import classNames from 'classnames';
 import { observer } from 'mobx-react-lite';
-import { useLocation, useNavigate } from 'react-router-dom';
 import ChunkLoader from '@/components/loader/chunk-loader';
 import DesktopWrapper from '@/components/shared_ui/desktop-wrapper';
 import Dialog from '@/components/shared_ui/dialog';
@@ -123,19 +122,10 @@ const SpeedBotIcon = () => (
     </svg>
 );
 
-const BotIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg width='24' height='24' viewBox='0 0 24 24' fill='none' {...props} xmlns='http://www.w3.org/2000/svg'>
-        <path
-            d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z'
-            fill='currentColor'
-        />
-    </svg>
-);
-
 const AppWrapper = observer(() => {
     const { connectionStatus } = useApiBase();
-    const { dashboard, load_modal, run_panel, quick_strategy, summary_card } = useStore();
-    const { active_tab, is_chart_modal_visible, is_trading_view_modal_visible, setActiveTab } = dashboard;
+    const { dashboard, load_modal, run_panel, summary_card } = useStore();
+    const { active_tab, is_chart_modal_visible, setActiveTab } = dashboard;
     const { onEntered } = load_modal;
     const {
         is_dialog_open,
@@ -148,10 +138,8 @@ const AppWrapper = observer(() => {
     } = run_panel;
     const { cancel_button_text, ok_button_text, title, message } = dialog_options as { [key: string]: string };
     const { clear } = summary_card;
-    const { DASHBOARD, BOT_BUILDER, ANALYSIS_TOOL, SIGNALS } = DBOT_TABS;
+    const { ANALYSIS_TOOL } = DBOT_TABS;
     const { isDesktop } = useDevice();
-    const location = useLocation();
-    const navigate = useNavigate();
 
     type BotType = {
         title: string;
@@ -161,7 +149,6 @@ const AppWrapper = observer(() => {
     };
     const [bots, setBots] = useState<BotType[]>([]);
     const [analysisToolUrl, setAnalysisToolUrl] = useState('ai');
-    const isAnalysisToolActive = active_tab === ANALYSIS_TOOL;
 
     useEffect(() => {
         if (connectionStatus !== CONNECTION_STATUS.OPENED) {
@@ -182,7 +169,8 @@ const AppWrapper = observer(() => {
                 'M27 Auto Switch bot 2024 (1).xml',
                 '(eRe Test 1)Even Odd Ghost V1 by Dexter.xml',
                 'updated CFX Auto-Bot by Dexterator.xml',
-                'Over 3 Delirium by Elvis Trades',
+                'Over 3 Delirium by Elvis Trades.xml',
+                'Over_Under Ghost v2 - by Elvis Trades.xml',
             ];
             const botPromises = botFiles.map(async file => {
                 try {
@@ -245,7 +233,9 @@ const AppWrapper = observer(() => {
 
     return (
         <>
-            <div className='main'>
+            <div className={classNames('main', {
+                'main--drawer-open': is_drawer_open && isDesktop && showRunPanel
+            })}>
                 <div className='main__container'>
                     <Tabs
                         active_index={active_tab}

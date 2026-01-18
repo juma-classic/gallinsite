@@ -9,31 +9,6 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
-        <!-- Loading Screen -->
-        <div id="loading-screen">
-            <div class="loader-container">
-                <div class="loader-card">
-                    <div class="loader-header">
-                        <h1 class="loader-title">GTRADE<span class="highlight">RS</span> HUB</h1>
-                        <p class="loader-subtitle">Smart Trading Solutions</p>
-                    </div>
-                    
-                    <div class="chart-icon">
-                        <div class="bar bar1"></div>
-                        <div class="bar bar2"></div>
-                        <div class="bar bar3"></div>
-                    </div>
-                    
-                    <div class="progress-container">
-                        <div class="progress-bar">
-                            <div class="progress-fill"></div>
-                        </div>
-                        <p class="loading-text">Loading Neural Network Models ...</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <header>
             <div class="container">
                 <h1>⚡Analysis Tool</h1>
@@ -127,20 +102,6 @@
         <!-- Styles moved to ai.css -->
         <script src="/ai/ai.js" async src="https://www.googletagmanager.com/gtag/js?id=G-RZBGLMGK1C"></script>
         <script>
-            // Loading Screen Management
-            window.addEventListener('load', function() {
-                // Simulate loading time for better UX
-                setTimeout(function() {
-                    const loadingScreen = document.getElementById('loading-screen');
-                    loadingScreen.classList.add('fade-out');
-                    
-                    // Remove from DOM after animation
-                    setTimeout(function() {
-                        loadingScreen.style.display = 'none';
-                    }, 500);
-                }, 2000); // Show loader for 2 seconds minimum
-            });
-
             // Theme Toggle Functionality
             const themeToggle = document.getElementById('theme-toggle');
             const body = document.body;

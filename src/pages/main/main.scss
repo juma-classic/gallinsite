@@ -125,10 +125,20 @@
     padding: 0; // Remove padding to use full space
     background: var(--bg-gradient);
     color: var(--text-primary);
+    transition: width 0.4s ease; // Smooth transition when drawer opens/closes
 
     @include mobile-or-tablet-screen {
         height: calc(100vh - 4rem);
         padding: 0;
+    }
+
+    // When drawer is open, adjust width to fit alongside Run Panel
+    &--drawer-open {
+        width: calc(100% - 36.6rem); // Subtract Run Panel width
+        
+        @include mobile-or-tablet-screen {
+            width: 100%; // Full width on mobile (Run Panel overlays)
+        }
     }
 
     &__container {
@@ -420,7 +430,7 @@
         }
 
         &--expanded {
-            width: 100%; // Use full width instead of constrained calculation
+            width: calc(100% - 36.6rem); // Subtract Run Panel width (36.6rem) to fit side by side
         }
 
         &--modal {
