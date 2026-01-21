@@ -1,4 +1,17 @@
 import React from 'react';
+import {
+    ChartIcon,
+    FireIcon,
+    LightningIcon,
+    MobileIcon,
+    PaletteIcon,
+    RobotIcon,
+    RocketIcon,
+    SettingsIcon,
+    SparkleIcon,
+    TargetIcon,
+    TrendUpIcon,
+} from './icons/SignalIcons';
 
 const SignalsCenterSimple: React.FC = () => {
     return (
@@ -18,9 +31,15 @@ const SignalsCenterSimple: React.FC = () => {
                         fontWeight: 'bold',
                         margin: '0 0 0.5rem 0',
                         textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.5rem',
                     }}
                 >
-                    ⚡ Super Signals ⚡
+                    <LightningIcon size={40} color='#fbbf24' />
+                    Super Signals
+                    <LightningIcon size={40} color='#fbbf24' />
                 </h1>
                 <p
                     style={{
@@ -51,7 +70,7 @@ const SignalsCenterSimple: React.FC = () => {
                     }}
                 >
                     <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
-                        <span style={{ fontSize: '2rem', marginRight: '0.5rem' }}>🤖</span>
+                        <RobotIcon size={32} color='#60a5fa' style={{ marginRight: '0.5rem' }} />
                         <h3 style={{ margin: 0, fontSize: '1.3rem' }}>AI Signal Intelligence</h3>
                     </div>
                     <p style={{ margin: 0, opacity: 0.9, lineHeight: 1.5 }}>
@@ -70,7 +89,7 @@ const SignalsCenterSimple: React.FC = () => {
                     }}
                 >
                     <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
-                        <span style={{ fontSize: '2rem', marginRight: '0.5rem' }}>📊</span>
+                        <ChartIcon size={32} color='#34d399' style={{ marginRight: '0.5rem' }} />
                         <h3 style={{ margin: 0, fontSize: '1.3rem' }}>Performance Analytics</h3>
                     </div>
                     <p style={{ margin: 0, opacity: 0.9, lineHeight: 1.5 }}>
@@ -89,7 +108,7 @@ const SignalsCenterSimple: React.FC = () => {
                     }}
                 >
                     <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
-                        <span style={{ fontSize: '2rem', marginRight: '0.5rem' }}>🎯</span>
+                        <TargetIcon size={32} color='#f472b6' style={{ marginRight: '0.5rem' }} />
                         <h3 style={{ margin: 0, fontSize: '1.3rem' }}>Pattern Recognition</h3>
                     </div>
                     <p style={{ margin: 0, opacity: 0.9, lineHeight: 1.5 }}>
@@ -109,7 +128,19 @@ const SignalsCenterSimple: React.FC = () => {
                     textAlign: 'center',
                 }}
             >
-                <h2 style={{ margin: '0 0 1rem 0', fontSize: '1.5rem' }}>🚀 Coming Soon</h2>
+                <h2
+                    style={{
+                        margin: '0 0 1rem 0',
+                        fontSize: '1.5rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.5rem',
+                    }}
+                >
+                    <RocketIcon size={24} color='#fbbf24' />
+                    Coming Soon
+                </h2>
                 <p style={{ margin: '0 0 1.5rem 0', fontSize: '1.1rem', opacity: 0.9 }}>
                     The full Super Signals system is being prepared with all advanced features including:
                 </p>
@@ -121,12 +152,30 @@ const SignalsCenterSimple: React.FC = () => {
                         marginTop: '1.5rem',
                     }}
                 >
-                    <div style={{ padding: '0.5rem' }}>✨ Real-time Signal Generation</div>
-                    <div style={{ padding: '0.5rem' }}>🔥 Hot/Cold Zone Detection</div>
-                    <div style={{ padding: '0.5rem' }}>📈 Multi-Market Analysis</div>
-                    <div style={{ padding: '0.5rem' }}>⚙️ Auto-Trading Integration</div>
-                    <div style={{ padding: '0.5rem' }}>📱 Mobile Optimization</div>
-                    <div style={{ padding: '0.5rem' }}>🎨 Advanced Visualizations</div>
+                    <div style={{ padding: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <SparkleIcon size={16} color='#fbbf24' />
+                        Real-time Signal Generation
+                    </div>
+                    <div style={{ padding: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <FireIcon size={16} color='#ef4444' />
+                        Hot/Cold Zone Detection
+                    </div>
+                    <div style={{ padding: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <TrendUpIcon size={16} color='#10b981' />
+                        Multi-Market Analysis
+                    </div>
+                    <div style={{ padding: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <SettingsIcon size={16} color='#8b5cf6' />
+                        Auto-Trading Integration
+                    </div>
+                    <div style={{ padding: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <MobileIcon size={16} color='#06b6d4' />
+                        Mobile Optimization
+                    </div>
+                    <div style={{ padding: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <PaletteIcon size={16} color='#f59e0b' />
+                        Advanced Visualizations
+                    </div>
                 </div>
             </div>
         </div>

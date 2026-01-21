@@ -6,7 +6,8 @@ import DesktopWrapper from '@/components/shared_ui/desktop-wrapper';
 import Dialog from '@/components/shared_ui/dialog';
 import MobileWrapper from '@/components/shared_ui/mobile-wrapper';
 import Tabs from '@/components/shared_ui/tabs/tabs';
-import SignalsCenterSimple from '@/components/signals/SignalsCenterSimple';
+import SignalsCenterSimpleTest from '@/components/signals/SignalsCenterSimpleTest';
+import SignalsCenterSimplified from '@/components/signals/SignalsCenterSimplified';
 import SpeedBot from '@/components/speed-bot';
 import TradingViewModal from '@/components/trading-view-chart/trading-view-modal';
 import { DBOT_TABS } from '@/constants/bot-contents';
@@ -214,22 +215,23 @@ const AppWrapper = observer(() => {
                     return null;
                 }
             });
-            const bots = (await Promise.all(botPromises)).filter(Boolean);
+            const bots = (await Promise.all(botPromises)).filter((bot): bot is BotType => bot !== null);
             setBots(bots);
         };
         fetchBots();
     }, []);
 
     const handleBotClick = useCallback(
-        async bot => {
+        async (bot: BotType) => {
             setActiveTab(DBOT_TABS.BOT_BUILDER);
             try {
                 if (typeof load_modal.loadStrategyToBuilder === 'function') {
                     await load_modal.loadStrategyToBuilder({
-                        id: bot.filePath, // Use filePath as id (or generate a unique id if needed)
+                        id: bot.filePath,
                         name: bot.title,
                         xml: bot.xmlContent,
-                        save_type: 'LOCAL', // or another type if needed
+                        save_type: 'LOCAL',
+                        timestamp: Date.now(),
                     });
                 } else {
                     console.error('loadStrategyToBuilder is not defined on load_modal');
@@ -337,7 +339,7 @@ const AppWrapper = observer(() => {
                                 })}
                                 style={{ height: '100%' }}
                             >
-                                <SignalsCenterSimple />
+                                <SignalsCenterSimplified />
                             </div>
                         </div>
                         <div
@@ -431,7 +433,7 @@ const AppWrapper = observer(() => {
                                 })}
                                 style={{ height: '100%' }}
                             >
-                                <SignalsCenterSimple />
+                                <SignalsCenterSimpleTest />
                             </div>
                         </div>
                         <div
@@ -622,7 +624,7 @@ const AppWrapper = observer(() => {
                                                         </button>
                                                     </div>
                                                 </li>
-                                            )) || null
+                                            ))
                                         )}
                                     </ul>
                                 </div>
