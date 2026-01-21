@@ -6,7 +6,6 @@ import DesktopWrapper from '@/components/shared_ui/desktop-wrapper';
 import Dialog from '@/components/shared_ui/dialog';
 import MobileWrapper from '@/components/shared_ui/mobile-wrapper';
 import Tabs from '@/components/shared_ui/tabs/tabs';
-import SignalsCenter from '@/components/signals/SignalsCenter';
 import SpeedBot from '@/components/speed-bot';
 import TradingViewModal from '@/components/trading-view-chart/trading-view-modal';
 import { DBOT_TABS } from '@/constants/bot-contents';
@@ -23,6 +22,7 @@ import RunStrategy from '../dashboard/run-strategy';
 
 const Chart = lazy(() => import('../chart'));
 const Tutorial = lazy(() => import('../tutorials'));
+const SignalsCenter = lazy(() => import('@/components/signals/SignalsCenter'));
 
 const DashboardIcon = () => (
     <svg width='20' height='20' fill='var(--text-general)' viewBox='0 0 24 24'>
@@ -400,7 +400,11 @@ const AppWrapper = observer(() => {
                                 })}
                                 style={{ height: '100%' }}
                             >
-                                <SignalsCenter />
+                                <Suspense
+                                    fallback={<ChunkLoader message={localize('Please wait, loading signals...')} />}
+                                >
+                                    <SignalsCenter />
+                                </Suspense>
                             </div>
                         </div>
                         <div

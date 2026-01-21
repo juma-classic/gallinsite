@@ -301,7 +301,7 @@ const RunPanel = observer(() => {
 
     return (
         <>
-            <div cassName={!isDesktop && is_drawer_open ? 'run-panel__container--mobile' : 'run-panel'}>
+            <div className={!isDesktop && is_drawer_open ? 'run-panel__container--mobile' : 'run-panel'}>
                 <Drawer
                     anchor='right'
                     className={classNames('run-panel', {
