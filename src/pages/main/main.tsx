@@ -6,6 +6,7 @@ import DesktopWrapper from '@/components/shared_ui/desktop-wrapper';
 import Dialog from '@/components/shared_ui/dialog';
 import MobileWrapper from '@/components/shared_ui/mobile-wrapper';
 import Tabs from '@/components/shared_ui/tabs/tabs';
+import SignalsCenter from '@/components/signals/SignalsCenter';
 import SpeedBot from '@/components/speed-bot';
 import TradingViewModal from '@/components/trading-view-chart/trading-view-modal';
 import { DBOT_TABS } from '@/constants/bot-contents';
@@ -397,14 +398,9 @@ const AppWrapper = observer(() => {
                                     'dashboard__chart-wrapper--expanded': is_drawer_open && isDesktop,
                                     'dashboard__chart-wrapper--modal': is_chart_modal_visible && isDesktop,
                                 })}
+                                style={{ height: '100%' }}
                             >
-                                <iframe
-                                    src='signals'
-                                    width='100%'
-                                    height='100%'
-                                    style={{ border: 'none', display: 'block' }}
-                                    scrolling='yes'
-                                />
+                                <SignalsCenter />
                             </div>
                         </div>
                         <div

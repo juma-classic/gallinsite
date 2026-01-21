@@ -1,0 +1,227 @@
+@use 'components/shared/styles/mixins' as *;
+
+.enhanced-trade-button {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex: 1;
+
+    .trade-button {
+        position: relative;
+        padding: 1rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.4rem;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        background: var(--button-color, var(--teal-primary));
+        color: #fff;
+        min-height: 5rem;
+
+        &:hover:not(&--disabled) {
+            background: var(--button-color-hover, var(--teal-hover));
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+        }
+
+        &:active:not(&--disabled) {
+            transform: translateY(0);
+        }
+
+        &--disabled {
+            background: var(--button-color-disabled, #666) !important;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        &--loading {
+            cursor: wait;
+
+            .trade-button__text {
+                opacity: 0.7;
+            }
+        }
+
+        &__content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            position: relative;
+        }
+
+        &__text {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        &__spinner {
+            .spinner {
+                width: 20px;
+                height: 20px;
+                border: 2px solid rgb(255 255 255 / 30%);
+                border-top: 2px solid #fff;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            }
+        }
+
+        &__details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid rgb(255 255 255 / 20%);
+
+            .trade-detail {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &__label {
+                    font-size: 1.1rem;
+                    opacity: 0.8;
+                    margin-bottom: 0.2rem;
+                }
+
+                &__value {
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        // Ripple effect
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgb(255 255 255 / 30%);
+            transform: translate(-50%, -50%);
+            transition:
+                width 0.6s,
+                height 0.6s;
+        }
+
+        &:active:not(&--disabled):before {
+            width: 300px;
+            height: 300px;
+        }
+    }
+
+    .confidence-indicator {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+
+        .confidence-bars {
+            display: flex;
+            gap: 2px;
+
+            .confidence-bar {
+                width: 8px;
+                height: 16px;
+                background: rgb(255 255 255 / 20%);
+                border-radius: 2px;
+                transition: background-color 0.3s ease;
+
+                &--filled {
+                    background: var(--teal-primary);
+                }
+            }
+        }
+
+        .confidence-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+    }
+
+    // Signal type specific colors
+    &[data-signal-type='RISE'] .trade-button {
+        --button-color: #0f8;
+        --button-color-hover: #00e67a;
+    }
+
+    &[data-signal-type='FALL'] .trade-button {
+        --button-color: #ff6b6b;
+        --button-color-hover: #ff5252;
+    }
+
+    &[data-signal-type='EVEN'] .trade-button {
+        --button-color: #4ecdc4;
+        --button-color-hover: #26a69a;
+    }
+
+    &[data-signal-type='ODD'] .trade-button {
+        --button-color: #ffa726;
+        --button-color-hover: #ff9800;
+    }
+
+    &[data-signal-type='OVER1-5'] .trade-button {
+        --button-color: #8bc34a;
+        --button-color-hover: #689f38;
+    }
+
+    &[data-signal-type='UNDER1-5'] .trade-button {
+        --button-color: #e91e63;
+        --button-color-hover: #c2185b;
+    }
+
+    // Mobile responsive
+    @include mobile-or-tablet-screen {
+        .trade-button {
+            padding: 0.8rem 1.2rem;
+            font-size: 1.2rem;
+            min-height: 4rem;
+
+            &__details {
+                flex-direction: column;
+                gap: 0.5rem;
+
+                .trade-detail {
+                    flex-direction: row;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    &__label {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        .confidence-indicator {
+            .confidence-bars {
+                .confidence-bar {
+                    width: 6px;
+                    height: 12px;
+                }
+            }
+
+            .confidence-label {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

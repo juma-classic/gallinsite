@@ -128,6 +128,9 @@
     @include mobile-or-tablet-screen {
         height: calc(100vh - 4rem);
         padding: 0;
+        width: 100vw; // Full viewport width
+        margin: 0; // Remove any margins
+        position: relative; // Ensure proper positioning
     }
 
     // When drawer is open, adjust width to fit alongside Run Panel
@@ -135,7 +138,7 @@
         width: calc(100% - 36.6rem); // Subtract Run Panel width
 
         @include mobile-or-tablet-screen {
-            width: 100%; // Full width on mobile (Run Panel overlays)
+            width: 100vw; // Full viewport width on mobile (Run Panel overlays)
         }
     }
 
@@ -145,6 +148,12 @@
         max-width: 100%;
         width: 100%;
         height: 100%; // Use full height
+
+        @include mobile-or-tablet-screen {
+            width: 100vw; // Full viewport width on mobile
+            margin: 0; // Remove any margins
+            padding: 0; // Remove any padding
+        }
 
         &--active {
             &:before {
@@ -162,6 +171,11 @@
 
         .dc-tabs {
             height: 100%; // Make tabs container full height
+            width: 100%; // Ensure full width
+
+            @include mobile-or-tablet-screen {
+                width: 100vw; // Full viewport width on mobile
+            }
 
             &__active-line {
                 background-color: var(--accent2) !important;
@@ -184,6 +198,12 @@
                     overflow-y: hidden;
                     -ms-overflow-style: none;
                     scrollbar-width: none;
+                    width: 100vw; // Full viewport width
+                    margin: 0; // Remove any margins
+                    padding: 0; // Remove any padding
+                    display: flex;
+                    justify-content: flex-start; // Align tabs to start
+                    min-width: 100%; // Ensure minimum full width
 
                     &::-webkit-scrollbar {
                         display: none;
@@ -194,9 +214,10 @@
                     &--main {
                         &__tabs {
                             @include mobile-or-tablet-screen {
-                                width: 100%;
+                                width: 100vw; // Full viewport width
                                 overflow-x: auto;
-                                padding: 0.8rem 1.6rem 0;
+                                padding: 0; // Remove padding to use full width
+                                margin: 0; // Remove margins
                             }
                         }
                     }
@@ -272,8 +293,22 @@
                 width: auto;
                 color: var(--text-primary);
                 transition: all 0.3s ease;
+                flex-shrink: 0; // Prevent shrinking
+                white-space: nowrap; // Prevent text wrapping
 
                 @include flex-center;
+
+                @include mobile-or-tablet-screen {
+                    padding: 0 1rem; // Reduce padding on mobile
+                    min-width: auto; // Allow flexible width
+                    font-size: 0.9rem; // Slightly smaller font
+                    height: 4.8rem;
+
+                    // Make tabs more compact but still readable
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
 
                 &:hover {
                     background: rgb(59 130 246 / 15%);
@@ -286,6 +321,8 @@
 
                     @include mobile-or-tablet-screen {
                         margin-inline-end: 0.4rem;
+                        width: 16px; // Slightly smaller icons on mobile
+                        height: 16px;
                     }
                 }
 
@@ -944,4 +981,194 @@
     align-items: center;
     justify-content: center;
     background: rgb(251 191 36 / 10%);
+}
+
+// Additional mobile-specific styles for full-width navigation
+@include mobile-or-tablet-screen {
+    // Ensure no body/html margins on mobile
+    html,
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+
+    .dc-tabs {
+        &__list {
+            // Force full width on mobile
+            width: 100vw !important;
+            max-width: 100vw !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+
+            // Ensure tabs are distributed properly
+            display: flex !important;
+            justify-content: flex-start !important;
+            align-items: center !important;
+
+            // Remove any box-sizing issues
+            box-sizing: border-box !important;
+
+            // Override the center justification from shared component
+            &:not(.dc-tabs__list--header-fit-content) {
+                justify-content: flex-start !important;
+            }
+        }
+
+        &__item {
+            // Make tabs more compact but ensure they fit
+            flex: 0 0 auto !important;
+            min-width: fit-content !important;
+            padding: 0 0.8rem !important;
+
+            // Ensure text doesn't wrap
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+
+            // Smaller font for better fit
+            font-size: 0.85rem !important;
+
+            // Override width from shared component
+            width: auto !important;
+
+            svg {
+                width: 14px !important;
+                height: 14px !important;
+                margin-right: 0.3rem !important;
+            }
+        }
+    }
+
+    // Ensure the main container doesn't have any side margins/padding
+    .main {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+
+        &__container {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100vw !important;
+            max-width: 100vw !important;
+
+            .dc-tabs {
+                width: 100vw !important;
+                max-width: 100vw !important;
+
+                &__list {
+                    // Additional specificity for main tabs
+                    width: 100vw !important;
+                    max-width: 100vw !important;
+                    justify-content: flex-start !important;
+
+                    // Make sure tabs can scroll horizontally if needed
+                    overflow-x: auto !important;
+                    overflow-y: hidden !important;
+                    -webkit-overflow-scrolling: touch !important;
+
+                    // Hide scrollbar but keep functionality
+                    scrollbar-width: none !important;
+                    -ms-overflow-style: none !important;
+
+                    &::-webkit-scrollbar {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Force full width layout on mobile - override any global styles
+@media (width <= 768px) {
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+    }
+
+    body {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+    }
+
+    #root {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+    }
+
+    .app {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+    }
+
+    .bot {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+    }
+
+    // Ensure all main navigation elements use full width
+    .main,
+    .main__container,
+    .dc-tabs,
+    .dc-tabs__list {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    // Make tabs more compact and scrollable
+    .dc-tabs__list {
+        display: flex !important;
+        justify-content: flex-start !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+
+        &::-webkit-scrollbar {
+            display: none !important;
+        }
+    }
+
+    .dc-tabs__item {
+        flex: 0 0 auto !important;
+        min-width: fit-content !important;
+        padding: 0 0.6rem !important;
+        font-size: 0.8rem !important;
+        white-space: nowrap !important;
+
+        svg {
+            width: 12px !important;
+            height: 12px !important;
+            margin-right: 0.2rem !important;
+        }
+    }
 }
