@@ -85,6 +85,14 @@ const AnalysisToolIcon = () => (
     </svg>
 );
 
+const SuperSignalsIcon = () => (
+    <svg width='24px' height='24px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <path d='M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z' fill='var(--text-general)' />
+        <path d='M19 15L19.5 17L21 17.5L19.5 18L19 20L18.5 18L17 17.5L18.5 17L19 15Z' fill='var(--text-general)' />
+        <path d='M5 6L5.5 7.5L7 8L5.5 8.5L5 10L4.5 8.5L3 8L4.5 7.5L5 6Z' fill='var(--text-general)' />
+    </svg>
+);
+
 const SignalsIcon = () => (
     <svg width='20px' height='20px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path
@@ -241,9 +249,13 @@ const AppWrapper = observer(() => {
 
     const toggleAnalysisTool = (url: string) => setAnalysisToolUrl(url);
 
-    const showRunPanel = [DBOT_TABS.BOT_BUILDER, DBOT_TABS.CHART, DBOT_TABS.ANALYSIS_TOOL, DBOT_TABS.SIGNALS].includes(
-        active_tab
-    );
+    const showRunPanel = [
+        DBOT_TABS.BOT_BUILDER,
+        DBOT_TABS.CHART,
+        DBOT_TABS.SUPER_SIGNALS,
+        DBOT_TABS.ANALYSIS_TOOL,
+        DBOT_TABS.SIGNALS,
+    ].includes(active_tab);
 
     return (
         <>
@@ -308,6 +320,25 @@ const AppWrapper = observer(() => {
                             >
                                 <Tutorial handleTabChange={setActiveTab} />
                             </Suspense>
+                        </div>
+                        <div
+                            label={
+                                <>
+                                    <SuperSignalsIcon />
+                                    <Localize i18n_default_text='Super Signals' />
+                                </>
+                            }
+                            id='id-super-signals'
+                        >
+                            <div
+                                className={classNames('dashboard__chart-wrapper', {
+                                    'dashboard__chart-wrapper--expanded': is_drawer_open && isDesktop,
+                                    'dashboard__chart-wrapper--modal': is_chart_modal_visible && isDesktop,
+                                })}
+                                style={{ height: '100%' }}
+                            >
+                                <SignalsCenterSimple />
+                            </div>
                         </div>
                         <div
                             label={
