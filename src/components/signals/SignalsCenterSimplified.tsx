@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SignalsCenter.scss';
 
 type SignalType = 'RISE' | 'FALL' | 'EVEN' | 'ODD' | 'OVER' | 'UNDER';
@@ -24,7 +24,31 @@ const SignalsCenterSimplified: React.FC = () => {
 
     // Generate mock signals based on category
     const generateSignals = (category: SignalCategory) => {
-        const markets = ['Volatility 75 Index', 'Volatility 100 Index', 'Volatility 25 Index', 'Volatility 50 Index'];
+        const markets = [
+            'Volatility 10 Index',
+            'Volatility 25 Index',
+            'Volatility 50 Index',
+            'Volatility 75 Index',
+            'Volatility 100 Index',
+            'Volatility 150 Index',
+            'Volatility 250 Index',
+            'Volatility 10 (1s) Index',
+            'Volatility 25 (1s) Index',
+            'Volatility 50 (1s) Index',
+            'Volatility 75 (1s) Index',
+            'Volatility 100 (1s) Index',
+            'Jump 10 Index',
+            'Jump 25 Index',
+            'Jump 50 Index',
+            'Jump 75 Index',
+            'Jump 100 Index',
+            'Crash 300 Index',
+            'Crash 500 Index',
+            'Crash 1000 Index',
+            'Boom 300 Index',
+            'Boom 500 Index',
+            'Boom 1000 Index',
+        ];
         const confidenceLevels: ('HIGH' | 'MEDIUM' | 'LOW')[] = ['HIGH', 'MEDIUM', 'LOW'];
 
         let signalTypes: SignalType[] = [];

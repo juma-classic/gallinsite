@@ -39,7 +39,31 @@ export class PatternPredictorService {
     }
 
     private initializeService(): void {
-        const markets = ['R_10', 'R_25', 'R_50', 'R_75', 'R_100'];
+        const markets = [
+            'R_10',
+            'R_25',
+            'R_50',
+            'R_75',
+            'R_100',
+            'R_150',
+            'R_250',
+            '1HZ10V',
+            '1HZ25V',
+            '1HZ50V',
+            '1HZ75V',
+            '1HZ100V',
+            'JD10',
+            'JD25',
+            'JD50',
+            'JD75',
+            'JD100',
+            'CRASH300N',
+            'CRASH500N',
+            'CRASH1000N',
+            'BOOM300N',
+            'BOOM500N',
+            'BOOM1000N',
+        ];
 
         markets.forEach(market => {
             derivConnectionPool.subscribeToTicks(market, tick => {
@@ -80,7 +104,31 @@ export class PatternPredictorService {
     }
 
     private updatePatternDatabases(): void {
-        const markets = ['R_10', 'R_25', 'R_50', 'R_75', 'R_100'];
+        const markets = [
+            'R_10',
+            'R_25',
+            'R_50',
+            'R_75',
+            'R_100',
+            'R_150',
+            'R_250',
+            '1HZ10V',
+            '1HZ25V',
+            '1HZ50V',
+            '1HZ75V',
+            '1HZ100V',
+            'JD10',
+            'JD25',
+            'JD50',
+            'JD75',
+            'JD100',
+            'CRASH300N',
+            'CRASH500N',
+            'CRASH1000N',
+            'BOOM300N',
+            'BOOM500N',
+            'BOOM1000N',
+        ];
 
         markets.forEach(market => {
             this.analyzePatterns(market);
@@ -160,7 +208,31 @@ export class PatternPredictorService {
     }
 
     private generatePatternSignals(): void {
-        const markets = ['R_10', 'R_25', 'R_50', 'R_75', 'R_100'];
+        const markets = [
+            'R_10',
+            'R_25',
+            'R_50',
+            'R_75',
+            'R_100',
+            'R_150',
+            'R_250',
+            '1HZ10V',
+            '1HZ25V',
+            '1HZ50V',
+            '1HZ75V',
+            '1HZ100V',
+            'JD10',
+            'JD25',
+            'JD50',
+            'JD75',
+            'JD100',
+            'CRASH300N',
+            'CRASH500N',
+            'CRASH1000N',
+            'BOOM300N',
+            'BOOM500N',
+            'BOOM1000N',
+        ];
         const signals: SignalsCenterSignal[] = [];
 
         markets.forEach(market => {
@@ -387,11 +459,38 @@ export class PatternPredictorService {
 
     private getMarketDisplay(market: string): string {
         const displays: Record<string, string> = {
+            // Standard Volatility Indices
             R_10: 'Volatility 10 Index',
             R_25: 'Volatility 25 Index',
             R_50: 'Volatility 50 Index',
             R_75: 'Volatility 75 Index',
             R_100: 'Volatility 100 Index',
+            R_150: 'Volatility 150 Index',
+            R_250: 'Volatility 250 Index',
+
+            // 1-Second Volatility Indices
+            '1HZ10V': 'Volatility 10 (1s) Index',
+            '1HZ25V': 'Volatility 25 (1s) Index',
+            '1HZ50V': 'Volatility 50 (1s) Index',
+            '1HZ75V': 'Volatility 75 (1s) Index',
+            '1HZ100V': 'Volatility 100 (1s) Index',
+
+            // Jump Indices
+            JD10: 'Jump 10 Index',
+            JD25: 'Jump 25 Index',
+            JD50: 'Jump 50 Index',
+            JD75: 'Jump 75 Index',
+            JD100: 'Jump 100 Index',
+
+            // Crash Indices
+            CRASH300N: 'Crash 300 Index',
+            CRASH500N: 'Crash 500 Index',
+            CRASH1000N: 'Crash 1000 Index',
+
+            // Boom Indices
+            BOOM300N: 'Boom 300 Index',
+            BOOM500N: 'Boom 500 Index',
+            BOOM1000N: 'Boom 1000 Index',
         };
 
         return displays[market] || market;
@@ -449,7 +548,31 @@ export class PatternPredictorService {
             this.marketData.set(market, []);
         } else {
             // Clear all markets
-            const markets = ['R_10', 'R_25', 'R_50', 'R_75', 'R_100'];
+            const markets = [
+                'R_10',
+                'R_25',
+                'R_50',
+                'R_75',
+                'R_100',
+                'R_150',
+                'R_250',
+                '1HZ10V',
+                '1HZ25V',
+                '1HZ50V',
+                '1HZ75V',
+                '1HZ100V',
+                'JD10',
+                'JD25',
+                'JD50',
+                'JD75',
+                'JD100',
+                'CRASH300N',
+                'CRASH500N',
+                'CRASH1000N',
+                'BOOM300N',
+                'BOOM500N',
+                'BOOM1000N',
+            ];
             markets.forEach(m => {
                 this.patternDatabases.set(m, {});
                 this.marketData.set(m, []);
