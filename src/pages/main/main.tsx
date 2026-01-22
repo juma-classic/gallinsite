@@ -6,7 +6,6 @@ import DesktopWrapper from '@/components/shared_ui/desktop-wrapper';
 import Dialog from '@/components/shared_ui/dialog';
 import MobileWrapper from '@/components/shared_ui/mobile-wrapper';
 import Tabs from '@/components/shared_ui/tabs/tabs';
-import SignalsCenterSimpleTest from '@/components/signals/SignalsCenterSimpleTest';
 import SignalsCenterSimplified from '@/components/signals/SignalsCenterSimplified';
 import SpeedBot from '@/components/speed-bot';
 import TradingViewModal from '@/components/trading-view-chart/trading-view-modal';
@@ -337,7 +336,7 @@ const AppWrapper = observer(() => {
                                     'dashboard__chart-wrapper--expanded': is_drawer_open && isDesktop,
                                     'dashboard__chart-wrapper--modal': is_chart_modal_visible && isDesktop,
                                 })}
-                                style={{ height: '100%' }}
+                                style={{ height: '100vh', padding: 0, margin: 0 }}
                             >
                                 <SignalsCenterSimplified />
                             </div>
@@ -431,9 +430,9 @@ const AppWrapper = observer(() => {
                                     'dashboard__chart-wrapper--expanded': is_drawer_open && isDesktop,
                                     'dashboard__chart-wrapper--modal': is_chart_modal_visible && isDesktop,
                                 })}
-                                style={{ height: '100%' }}
+                                style={{ height: '100vh', padding: 0, margin: 0 }}
                             >
-                                <SignalsCenterSimpleTest />
+                                <SignalsCenterSimplified />
                             </div>
                         </div>
                         <div
